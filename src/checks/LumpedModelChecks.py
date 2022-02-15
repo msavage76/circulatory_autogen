@@ -58,12 +58,12 @@ class LumpedBCVesselCheck(AbstractLumpedCheck):
         Executes all check activities.
         :param model_0D: model to be checked.
         '''
-        for vessel_vec in model_0D.vessels:
-            if vessel_vec['BC_type'] not in model_0D.possible_BC_types:
-                print(f'BC_type of {vessel_vec["BC_type"]} is not allowed for vessel {vessel_vec["name"]}')
+        for vessel_tup in model_0D.vessels_df.itertuples():
+            if vessel_tup.BC_type not in model_0D.possible_BC_types:
+                print(f'BC_type of {vessel_tup.BC_type} is not allowed for vessel {vessel_tup.name}')
                 exit()
-            if vessel_vec['vessel_type'] not in model_0D.possible_vessel_types:
-                print(f'vessel_type of {vessel_vec["vessel_type"]} is not allowed for vessel {vessel_vec["name"]}')
+            if vessel_tup.vessel_type not in model_0D.possible_vessel_types:
+                print(f'vessel_type of {vessel_tup.vessel_type} is not allowed for vessel {vessel_tup.name}')
                 exit()
 
 class LumpedIDParamsCheck(AbstractLumpedCheck):
@@ -77,7 +77,7 @@ class LumpedIDParamsCheck(AbstractLumpedCheck):
         :param model_0D: model to be checked.
         '''
         for const_name, _ in model_0D.param_id_consts:
-            if not const_name in model_0D.parameters['variable_name']:
+            if not const_name in model_0D.parameters_array['variable_name']:
                 print(f'ERROR parameter id constant of {const_name} is not defined in the parameters file')
                 exit()
 

@@ -1,10 +1,4 @@
 variable_name,units,comp_env,value,data_reference
-C_par,m6_per_J,pulmonary,0.0309077e-7,to_be_identified
-C_pvn,m6_per_J,pulmonary,0.60015e-7,to_be_identified
-R_par,Js_per_m6,pulmonary,4.7390e+06,15_12_2021_identified
-R_pvn,Js_per_m6,pulmonary,1.333e+6,Blanco_2013_Table_8
-I_par,Js2_per_m6,pulmonary,1.0e-6,Blanco_2013_Table_8
-I_pvn,Js2_per_m6,pulmonary,1.0e-6,Blanco_2013_Table_8
 T,second,heart,1.0,defined_by_user
 t_ac,dimensionless,heart,0.80,Liang_2009_Table_2
 t_ar,dimensionless,heart,0.97,Liang_2009_Table_2
@@ -86,6 +80,10 @@ r_subclavian_L78,metre,systemic,2.90824e-03,ADAN_86
 l_subclavian_L78,metre,systemic,41.1396e-03,ADAN_86
 theta_subclavian_L78,dimensionless,systemic,90,defined_by_user
 E_subclavian_L78,J_per_m3,systemic,0.4e+6,ADAN_86
+r_brachial_L82,metre,systemic,1.96732e-03,ADAN_86
+l_brachial_L82,metre,systemic,223.119e-03,ADAN_86
+theta_brachial_L82,dimensionless,systemic,180,defined_by_user
+E_brachial_L82,J_per_m3,systemic,0.4e+6,ADAN_86
 r_common_carotid_L48_A,metre,systemic,4.36635e-03,ADAN_86
 l_common_carotid_L48_A,metre,systemic,30.339e-03,ADAN_86
 theta_common_carotid_L48_A,dimensionless,systemic,0,defined_by_user
@@ -202,6 +200,10 @@ r_subclavian_R30,metre,systemic,3.32268e-03,ADAN_86
 l_subclavian_R30,metre,systemic,41.1419e-03,ADAN_86
 theta_subclavian_R30,dimensionless,systemic,90,defined_by_user
 E_subclavian_R30,J_per_m3,systemic,0.4e+6,ADAN_86
+r_brachial_R34,metre,systemic,1.96732e-03,ADAN_86
+l_brachial_R34,metre,systemic,223.119e-03,ADAN_86
+theta_brachial_R34,dimensionless,systemic,180,defined_by_user
+E_brachial_R34,J_per_m3,systemic,0.4e+6,ADAN_86
 r_vertebral_R272,metre,systemic,0.133527e-2,ADAN_86
 l_vertebral_R272,metre,systemic,21.0146e-2,ADAN_86
 theta_vertebral_R272,dimensionless,systemic,0,defined_by_user
@@ -362,5 +364,9 @@ I_venous_ivc,Js2_per_m6,systemic,0.1e-6,small_chosen
 R_venous_svc,Js_per_m6,systemic,0.1e-6,small_chosen
 C_venous_svc,m6_per_J,systemic,1.7834e-08,15_12_2021_identified
 I_venous_svc,Js2_per_m6,systemic,0.1e-6,small_chosen
-beta_g,dimensionless,systemic,0.0,defined_by_user
-gain_int,J_per_m9,systemic,0.0,to_be_identified
+R_par,Js_per_m6,pulmonary,4.7390e+06,15_12_2021_identified
+C_par,m6_per_J,pulmonary,0.0309077e-7,to_be_identified
+I_par,Js2_per_m6,pulmonary,1.0e-6,Blanco_2013_Table_8
+R_pvn,Js_per_m6,pulmonary,1.333e+6,Blanco_2013_Table_8
+C_pvn,m6_per_J,pulmonary,0.60015e-7,to_be_identified
+I_pvn,Js2_per_m6,pulmonary,1.0e-6,Blanco_2013_Table_8

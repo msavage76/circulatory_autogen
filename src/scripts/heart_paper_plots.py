@@ -430,6 +430,49 @@ if __name__ == '__main__':
         plt.savefig(os.path.join(user_plots_path, 'heart_model_3compartment_vs_physiological.eps'))
         plt.savefig(os.path.join(user_plots_path, 'heart_model_3compartment_vs_physiological.pdf'))
 
+        # plot 3compartment for Sinclair poster results
+        fig, ax = plt.subplots(1, 1)
+
+        # fig.suptitle('Computation of Left Ventricle PV Loop', fontsize=20)
+        ax.set_xlabel('LV Volume [$ml$]', fontsize=18)
+        ax.set_ylabel('LV Pressure [$kPa$]', fontsize=18)
+        ax.set_xlim(0.0, 200.0)
+        ax.set_ylim(0.0, 20.0)
+        ax.plot(m3_to_cm3*pred_obs_nom[q_lv_idx, -n_steps:],
+                       Pa_to_kPa*pred_obs_nom[u_lv_idx, -n_steps:], 'b')
+
+        # fig.align_ylabels(axs[:, 0])
+        # fig.align_ylabels(axs[:, 1])
+        # axs[1, 1].legend(loc='lower right', fontsize=6)
+        plt.tight_layout()
+        plt.savefig(os.path.join(user_plots_path, 'heart_model_3compartment_PV_loop.eps'))
+        plt.savefig(os.path.join(user_plots_path, 'heart_model_3compartment_PV_loop.pdf'))
+
+
+        fig, axs = plt.subplots(2, 1)
+
+        axs[0].set_xlabel('Time [$s$]', fontsize=14)
+        axs[0].set_ylabel('LV Volume [$ml$]', fontsize=14)
+        axs[0].set_xlim(0.0, 1.0)
+        axs[0].set_ylim(0.0, 200.0)
+        axs[0].plot(tSim, m3_to_cm3*gt_q_lv, 'k--', label='experimental')
+        axs[0].plot(tSim, m3_to_cm3*pred_obs_nom[q_lv_idx, :], 'b', label='simulation')
+
+        axs[1].set_xlabel('Time [$s$]', fontsize=14)
+        axs[1].set_ylabel('AR Pressure [$kPa$]', fontsize=14)
+        axs[1].set_xlim(0.0, 1.0)
+        axs[1].set_ylim(0.0, 18.0)
+        axs[1].plot(tSim, Pa_to_kPa*gt_u_ar, 'k--', label='experimental')
+        axs[1].plot(tSim, Pa_to_kPa*pred_obs_nom[u_ar_idx, :], 'b', label='simulation')
+
+        fig.align_ylabels(axs[:])
+        fig.align_ylabels(axs[:])
+        fig.set_figwidth(3)
+        axs[1].legend(loc='lower center', fontsize=6)
+        plt.tight_layout()
+        plt.savefig(os.path.join(user_plots_path, 'heart_model_3compartment_exp_vs_sim.eps'))
+        plt.savefig(os.path.join(user_plots_path, 'heart_model_3compartment_exp_vs_sim.pdf'))
+
     except:
         print(traceback.format_exc())
         print("Usage: param_id_method file_name_prefix input_params_to_id, param_id_obs_file")

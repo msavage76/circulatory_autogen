@@ -51,14 +51,14 @@
 <variable initial_value="1e-10" name="C_T_systemic" public_interface="out" units="m6_per_J"/>
 <variable initial_value="1.0" name="alpha_systemic" public_interface="out" units="dimensionless"/>
 <variable initial_value="0.0" name="v_nom_systemic" public_interface="out" units="m3_per_s"/>
-<variable initial_value="1114600.0" name="R_venous_svc" public_interface="out" units="Js_per_m6"/>
-<variable initial_value="1.2582e+06" name="C_venous_svc" public_interface="out" units="m6_per_J"/>
+<variable initial_value="1.2582e+06" name="R_venous_svc" public_interface="out" units="Js_per_m6"/>
+<variable initial_value="1.7948e-08" name="C_venous_svc" public_interface="out" units="m6_per_J"/>
 <variable initial_value="1.0e-3" name="I_venous_svc" public_interface="out" units="Js2_per_m6"/>
-<variable initial_value="10.664e+6" name="R_par" public_interface="out" units="Js_per_m6"/>
-<variable initial_value="0.0309077e-7" name="C_par" public_interface="out" units="m6_per_J"/>
-<variable initial_value="1.0e-6" name="I_par" public_interface="out" units="Js2_per_m6"/>
 <variable initial_value="1.333e+6" name="R_pvn" public_interface="out" units="Js_per_m6"/>
 <variable initial_value="0.60015e-7" name="C_pvn" public_interface="out" units="m6_per_J"/>
 <variable initial_value="1.0e-6" name="I_pvn" public_interface="out" units="Js2_per_m6"/>
+<variable initial_value="10.664e+6" name="R_par" public_interface="out" units="Js_per_m6"/>
+<variable initial_value="0.0309077e-7" name="C_par" public_interface="out" units="m6_per_J"/>
+<variable initial_value="1.0e-6" name="I_par" public_interface="out" units="Js2_per_m6"/>
 </component>
 </model>

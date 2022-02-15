@@ -20,9 +20,10 @@ class CSVFileParser(object):
         Constructor
         '''
         
-    def get_data_as_dataframe_param_id(self, filename, has_header=True):
+    def get_data_as_dataframe_multistrings(self, filename, has_header=True):
         '''
-        Returns the data in the CSV file as a Pandas dataframe
+        Returns the data in the CSV file as a Pandas dataframe where entries in the data array that have two
+        entries are put in a list in the entry for the dataframe
         :param filename: filename of CSV file
         :param has_header: If CSV file has a header
         '''
@@ -33,16 +34,20 @@ class CSVFileParser(object):
 
         csv_dataframe = csv_dataframe.rename(columns=lambda x: x.strip())
         for II in range(csv_dataframe.shape[0]):
-            entry = csv_dataframe["vessel_name"][II]
-            sub_entries = entry.split()
-            new_entry = [sub_entry.strip() for sub_entry in sub_entries]
+            for column_name in csv_dataframe.columns:
+                entry = csv_dataframe[column_name][II]
+                sub_entries = entry.split()
+                if column_name in ['vessel_name', 'inp_vessels', 'out_vessels']:
+                    new_entry = [sub_entry.strip() for sub_entry in sub_entries]
+                else:
+                    new_entry = sub_entries[0].strip()
 
-            csv_dataframe["vessel_name"][II] = new_entry
+                csv_dataframe[column_name][II] = new_entry
 
-        for column_name in csv_dataframe.columns:
-            if column_name == 'vessel_name':
-                continue
-            csv_dataframe[column_name] = csv_dataframe[column_name].str.strip()
+        # for column_name in csv_dataframe.columns:
+        #     if column_name == 'vessel_name':
+        #         continue
+        #     csv_dataframe[column_name] = csv_dataframe[column_name].str.strip()
     
         return csv_dataframe
 

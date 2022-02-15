@@ -52,6 +52,8 @@ if __name__ == '__main__':
 
         input_params_path = os.path.join(resources_dir_path, f'{file_name_prefix}_params_for_id.csv')
         sensitivity_params_path = os.path.join(resources_dir_path, f'{file_name_prefix}_params_for_sensitivity.csv')
+        if not os.path.exists(sensitivity_params_path):
+            sensitivity_params_path = input_params_path
         sensitivity_output_paths = os.path.join(resources_dir_path, f'{file_name_prefix}_sensitivity_output_paths.csv')
 
         param_id_obs_path = sys.argv[3]
@@ -62,7 +64,7 @@ if __name__ == '__main__':
 
         # set the simulation time where the cost is calculated (sim_time) and the amount of 
         # simulation time it takes to get to an oscilating steady state before that (pre_time)
-        if file_name_prefix == '3compartment':
+        if file_name_prefix == '3compartment' or 'FTU_wCVS':
           pre_time = 6.0
         else: 
           pre_time = 20.0

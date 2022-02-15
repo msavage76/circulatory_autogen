@@ -28,8 +28,6 @@ q_ra_0,m3,heart,4.0e-6,Korakianitis_2006_Table_1
 q_rv_0,m3,heart,10.0e-6,Korakianitis_2006_Table_1
 q_la_0,m3,heart,4.0e-6,Korakianitis_2006_Table_1
 q_lv_0,m3,heart,5.0e-6,Korakianitis_2006_Table_1
-beta_g,dimensionless,systemic,0.0,defined_by_user
-gain_int,J_per_m9,systemic,0.0,to_be_identified
 alpha_leg_L,dimensionless,systemic,1.0,ANS_control_param
 alpha_leg_R,dimensionless,systemic,1.0,ANS_control_param
 alpha_head_L,dimensionless,systemic,1.0,ANS_control_param

@@ -206,5 +206,3 @@ I_venous_ivc,Js2_per_m6,systemic,0.1e-6,small_chosen
 R_venous_svc,Js_per_m6,systemic,0.1e-6,small_chosen
 C_venous_svc,m6_per_J,systemic,1.0e-6,to_be_identified
 I_venous_svc,Js2_per_m6,systemic,0.1e-6,small_chosen
-beta_g,dimensionless,systemic,0.0,defined_by_user
-gain_int,J_per_m9,systemic,0.0,to_be_identified

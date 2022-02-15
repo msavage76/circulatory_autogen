@@ -1,13 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <model name="Parameters" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#">
-<component name="parameters_pulmonary">
-<variable initial_value="0.0309077e-7" name="C_par" public_interface="out" units="m6_per_J"/>
-<variable initial_value="0.60015e-7" name="C_pvn" public_interface="out" units="m6_per_J"/>
-<variable initial_value="4.7390e+06" name="R_par" public_interface="out" units="Js_per_m6"/>
-<variable initial_value="1.333e+6" name="R_pvn" public_interface="out" units="Js_per_m6"/>
-<variable initial_value="1.0e-6" name="I_par" public_interface="out" units="Js2_per_m6"/>
-<variable initial_value="1.0e-6" name="I_pvn" public_interface="out" units="Js2_per_m6"/>
-</component>
 <component name="parameters_heart">
 <variable initial_value="1.0" name="T" public_interface="out" units="second"/>
 <variable initial_value="0.80" name="t_ac" public_interface="out" units="dimensionless"/>
@@ -51,7 +43,7 @@
 <variable initial_value="1" name="M_st_aov" public_interface="out" units="dimensionless"/>
 <variable initial_value="1050" name="rho" public_interface="out" units="Js2_per_m5"/>
 </component>
-<component name="parameters_systemic">
+<component name="parameters">
 <variable initial_value="15.642e-03" name="r_ascending_aorta_A" public_interface="out" units="metre"/>
 <variable initial_value="15.3234e-03" name="l_ascending_aorta_A" public_interface="out" units="metre"/>
 <variable initial_value="0" name="theta_ascending_aorta_A" public_interface="out" units="dimensionless"/>
@@ -92,6 +84,10 @@
 <variable initial_value="41.1396e-03" name="l_subclavian_L78" public_interface="out" units="metre"/>
 <variable initial_value="90" name="theta_subclavian_L78" public_interface="out" units="dimensionless"/>
 <variable initial_value="0.4e+6" name="E_subclavian_L78" public_interface="out" units="J_per_m3"/>
+<variable initial_value="1.96732e-03" name="r_brachial_L82" public_interface="out" units="metre"/>
+<variable initial_value="223.119e-03" name="l_brachial_L82" public_interface="out" units="metre"/>
+<variable initial_value="180" name="theta_brachial_L82" public_interface="out" units="dimensionless"/>
+<variable initial_value="0.4e+6" name="E_brachial_L82" public_interface="out" units="J_per_m3"/>
 <variable initial_value="4.36635e-03" name="r_common_carotid_L48_A" public_interface="out" units="metre"/>
 <variable initial_value="30.339e-03" name="l_common_carotid_L48_A" public_interface="out" units="metre"/>
 <variable initial_value="0" name="theta_common_carotid_L48_A" public_interface="out" units="dimensionless"/>
@@ -208,6 +204,10 @@
 <variable initial_value="41.1419e-03" name="l_subclavian_R30" public_interface="out" units="metre"/>
 <variable initial_value="90" name="theta_subclavian_R30" public_interface="out" units="dimensionless"/>
 <variable initial_value="0.4e+6" name="E_subclavian_R30" public_interface="out" units="J_per_m3"/>
+<variable initial_value="1.96732e-03" name="r_brachial_R34" public_interface="out" units="metre"/>
+<variable initial_value="223.119e-03" name="l_brachial_R34" public_interface="out" units="metre"/>
+<variable initial_value="180" name="theta_brachial_R34" public_interface="out" units="dimensionless"/>
+<variable initial_value="0.4e+6" name="E_brachial_R34" public_interface="out" units="J_per_m3"/>
 <variable initial_value="0.133527e-2" name="r_vertebral_R272" public_interface="out" units="metre"/>
 <variable initial_value="21.0146e-2" name="l_vertebral_R272" public_interface="out" units="metre"/>
 <variable initial_value="0" name="theta_vertebral_R272" public_interface="out" units="dimensionless"/>
@@ -368,7 +368,11 @@
 <variable initial_value="0.1e-6" name="R_venous_svc" public_interface="out" units="Js_per_m6"/>
 <variable initial_value="1.7834e-08" name="C_venous_svc" public_interface="out" units="m6_per_J"/>
 <variable initial_value="0.1e-6" name="I_venous_svc" public_interface="out" units="Js2_per_m6"/>
-<variable initial_value="0.0" name="beta_g" public_interface="out" units="dimensionless"/>
-<variable initial_value="0.0" name="gain_int" public_interface="out" units="J_per_m9"/>
+<variable initial_value="4.7390e+06" name="R_par" public_interface="out" units="Js_per_m6"/>
+<variable initial_value="0.0309077e-7" name="C_par" public_interface="out" units="m6_per_J"/>
+<variable initial_value="1.0e-6" name="I_par" public_interface="out" units="Js2_per_m6"/>
+<variable initial_value="1.333e+6" name="R_pvn" public_interface="out" units="Js_per_m6"/>
+<variable initial_value="0.60015e-7" name="C_pvn" public_interface="out" units="m6_per_J"/>
+<variable initial_value="1.0e-6" name="I_pvn" public_interface="out" units="Js2_per_m6"/>
 </component>
 </model>

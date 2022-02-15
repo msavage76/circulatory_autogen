@@ -104,7 +104,7 @@ class CVS0DParamID():
                                            sim_time=sim_time, pre_time=pre_time,
                                            dt=self.dt, maximumStep=maximumStep, DEBUG=self.DEBUG)
         if self.rank == 0:
-            self.param_id.set_output_dir(self.output_dir)
+            self.set_output_dir(self.output_dir)
 
         self.best_output_calculated = False
         self.sensitivity_calculated = False
@@ -145,6 +145,12 @@ class CVS0DParamID():
                 if param_name_list == params_to_update_list:
                     self.sensitivity_param_mins[len(self.sensitivity_param_state_names) + JJ] = min
                     self.sensitivity_param_maxs[len(self.sensitivity_param_state_names) + JJ] = max
+
+    def set_output_dir(self, path):
+        self.output_dir = path
+        if not os.path.exists(self.output_dir):
+            os.mkdir(self.output_dir)
+        self.param_id.set_output_dir(self.output_dir)
 
     def plot_outputs(self):
         if not self.best_output_calculated:
@@ -249,6 +255,7 @@ class CVS0DParamID():
                     plt.savefig(os.path.join(self.plot_dir,
                                              f'reconstruct_{self.param_id_method}_'
                                              f'{self.file_name_prefix}_{plot_idx}.pdf'))
+                    plt.close()
                     plot_saved = True
                     col_idx = 0
                     row_idx = 0
@@ -270,6 +277,7 @@ class CVS0DParamID():
             plt.savefig(os.path.join(self.plot_dir,
                                      f'reconstruct_{self.param_id_method}_'
                                      f'{self.file_name_prefix}_{plot_idx}.pdf'))
+            plt.close()
 
     def run_sensitivity(self, sensitivity_output_paths):
         if sensitivity_output_paths == None:
@@ -375,6 +383,7 @@ class CVS0DParamID():
         plt.savefig(os.path.join(self.plot_dir,
                                      f'reconstruct_{self.param_id_method}_'
                                      f'{self.file_name_prefix}_sensitivity_average.pdf'))
+        plt.close()
         #plot parameter importance
         plt.rc('xtick', labelsize=6)
         plt.rc('ytick', labelsize=12)
@@ -389,6 +398,7 @@ class CVS0DParamID():
         plt.savefig(os.path.join(self.plot_dir,
                                      f'reconstruct_{self.param_id_method}_'
                                      f'{self.file_name_prefix}_parameter_importance_average.pdf'))
+        plt.close()
         #plot collinearity index average
         plt.rc('xtick', labelsize=12)
         plt.rc('ytick', labelsize=4)
@@ -406,6 +416,7 @@ class CVS0DParamID():
         plt.savefig(os.path.join(self.plot_dir,
                                      f'reconstruct_{self.param_id_method}_'
                                      f'{self.file_name_prefix}_collinearity_index_average.pdf'))
+        plt.close()
 
         plt.rc('xtick', labelsize=4)
         plt.rc('ytick', labelsize=4)
@@ -450,6 +461,7 @@ class CVS0DParamID():
             plt.savefig(os.path.join(self.plot_dir,
                                          f'reconstruct_{self.param_id_method}_'
                                          f'{self.file_name_prefix}_collinearity_triples_average' + str(i) + '.pdf'))
+            plt.close()
         #plot collinearity quads average
         for i in range(len(x_values)):
             for j in range(len(x_values)):
@@ -476,6 +488,7 @@ class CVS0DParamID():
                                              f'reconstruct_{self.param_id_method}_'
                                              f'{self.file_name_prefix}collinearity_quads_average' + str(i) + '_' + str(
                                                  j) + '.pdf'))
+                plt.close()
 
 
 
@@ -543,7 +556,7 @@ class CVS0DParamID():
         # Each entry in param_const_names is a name or list of names that gets modified by one parameter
         if input_params_path:
             csv_parser = CSVFileParser()
-            input_params = csv_parser.get_data_as_dataframe_param_id(input_params_path)
+            input_params = csv_parser.get_data_as_dataframe_multistrings(input_params_path)
             self.param_state_names = []
             self.param_const_names = []
             param_state_names_for_gen = []
@@ -647,7 +660,7 @@ class CVS0DParamID():
         # Each entry in sensitivity_param_const_names is a name or list of names that gets modified by one parameter
         if sensitivity_params_path:
             csv_parser = CSVFileParser()
-            sensitivity_params = csv_parser.get_data_as_dataframe_param_id(sensitivity_params_path)
+            sensitivity_params = csv_parser.get_data_as_dataframe_multistrings(sensitivity_params_path)
             self.sensitivity_param_state_names = []
             self.sensitivity_param_const_names = []
             for II in range(sensitivity_params.shape[0]):
@@ -749,7 +762,7 @@ class OpencorParamID():
 
         # set up opencor simulation
         self.dt = dt  # TODO this could be optimised
-        self.maximumStep=maximumStep
+        self.maximumStep = maximumStep
         self.point_interval = self.dt
         self.sim_time = sim_time
         self.pre_time = pre_time
